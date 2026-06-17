@@ -1,0 +1,81 @@
+exp_name: TAMS_MrHiSum
+model_name: TAMS
+dataset: MrHiSum
+mrhisum_root: ./data/annotations/MrHiSum
+graph_name: MrHiSum_placeholder
+loss_name: mse
+
+protocol_mode: strict_main
+score_level: frame
+monitor_metric: tau_rho_sum
+output_adapter: none
+
+task_mode: generic
+use_query: false
+modalities: [v, t, a]
+num_modality: 3
+use_text: true
+use_audio: true
+
+mrhisum_no_pad: true
+
+use_step0: true
+m1_use_missing_token: true
+m2_visual_type: ca_gbt
+m2_text_type: sage
+m2_audio_type: sage
+disable_dual_threshold: true
+
+use_matl: true
+use_ta_gnn: true
+
+matl_scales: [3, 10, 30]
+matl_temperature_init: 1.0
+matl_temperature_final: 0.1
+matl_temperature_epochs: 15
+
+lambda_topo_sparse: 0.01
+lambda_topo_div: 0.008
+topo_rho_min: 0.3
+
+interleaved_layers: 3
+multi_scale_taus: [3, 10, 30]
+cmf_n_heads: 4
+
+use_rank_loss: true
+lambda_rank: 0.08
+rank_pairs_per_video: 96
+rank_warmup_epochs: 2
+
+channel1: 256
+channel2: 128
+final_dim: 1
+num_att_heads: 0
+dropout: 0.2
+
+lr: 0.0005
+wd: 0.0005
+batch_size: 1
+num_epoch: 80
+tau: 30
+seed: 42
+device: cuda:0
+root_data: ./data
+root_result: ./results
+max_grad_norm: 0.5
+
+use_amp: false
+warmup_epochs: 3
+patience: 25
+
+mrhisum_dataloader_num_workers: 4
+mrhisum_dataloader_pin_memory: true
+mrhisum_modality_dropout_p: 0.10
+mrhisum_modality_dropout_which: aux
+mrhisum_cosine_t_max: 80
+mrhisum_eval_fps: 1.0
+mrhisum_hl_shot_seconds: 5.0
+
+use_mean_sum: true
+norm: true
+t_emb: true

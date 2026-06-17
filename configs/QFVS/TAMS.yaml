@@ -1,0 +1,70 @@
+exp_name: TAMS_QFVS
+model_name: TAMS
+dataset: QFVS
+graph_name: QFVS_ut
+loss_name: bce_logit
+
+protocol_mode: strict_main
+task_mode: query
+score_level: frame
+monitor_metric: loss
+output_adapter: none
+
+use_query: true
+query_in_dim: 300
+query_fusion: cross_attn
+query_cross_attn_heads: 4
+query_cross_attn_dropout: 0.1
+
+modalities: [v]
+num_modality: 1
+use_text: false
+use_audio: false
+
+use_step0: true
+m1_use_missing_token: true
+m2_visual_type: ca_gbt
+
+use_matl: true
+use_ta_gnn: true
+matl_scales: [3, 10, 30]
+matl_temperature_init: 1.0
+matl_temperature_final: 0.1
+matl_temperature_epochs: 10
+
+lambda_topo_sparse: 0.01
+topo_rho_min: 0.3
+
+interleaved_layers: 3
+multi_scale_taus: [3, 10, 30]
+
+use_rank_loss: true
+rank_supervision: gtscore
+use_query_loss: true
+lambda_rank: 0.06
+lambda_q: 0.15
+
+channel1: 256
+channel2: 128
+final_dim: 1
+num_att_heads: 0
+dropout: 0.35
+
+lr: 0.001
+wd: 0.001
+batch_size: 1
+sch_param: 40
+num_epoch: 40
+k: 5
+eps: 0.5
+max_grad_norm: 0.5
+
+qfvs_sharghi_top_frac: 0.06
+
+use_mean_sum: true
+norm: true
+t_emb: true
+seed: 42
+device: cuda:0
+gradient_checkpointing: true
+use_amp: true

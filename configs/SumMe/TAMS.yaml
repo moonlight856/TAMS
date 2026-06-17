@@ -1,0 +1,72 @@
+exp_name: TAMS_SumMe
+model_name: TAMS
+dataset: SumMe
+graph_name: SumMe_10_0_vta
+loss_name: bce_logit
+
+protocol_mode: strict_main
+score_level: frame
+monitor_metric: joint
+output_adapter: none
+
+task_mode: generic
+use_query: false
+modalities: [v, t, a]
+num_modality: 3
+modality_dims: [1024, 768, 768]
+use_text: true
+use_audio: true
+
+m2_visual_type: ca_gbt
+m2_text_type: none
+m2_audio_type: none
+
+use_matl: false
+use_ot_cma: true
+use_directional_gnn: true
+use_modality_gate: true
+
+sinkhorn_reg: 0.1
+sinkhorn_iter: 8
+ot_cma_topo_weight: 0.1
+ot_cma_dropout: 0.15
+
+interleaved_layers: 3
+multi_scale_taus: [3, 10, 30]
+
+use_rank_loss: true
+rank_supervision: gtscore
+lambda_rank: 0.10
+rank_pairs_per_video: 128
+
+channel1: 256
+channel2: 128
+final_dim: 1
+num_att_heads: 0
+dropout: 0.25
+
+use_score_calibration: true
+eval_temperature: 1.0
+
+lr: 0.001
+wd: 0.0001
+batch_size: 1
+num_epoch: 80
+save_checkpoint_interval: 5
+k: 15
+eps: 0.85
+use_mean_sum: false
+
+monitor_warmup_epochs: 5
+monitor_joint_w_f1: 1.5
+monitor_joint_w_tau: 1.0
+monitor_joint_w_rho: 1.0
+joint_val_budget: 0.15
+
+norm: true
+t_emb: true
+seed: 42
+device: cuda:0
+eval_type: VS_max
+use_amp: false
+max_grad_norm: 0.5

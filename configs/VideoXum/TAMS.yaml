@@ -1,0 +1,79 @@
+exp_name: TAMS_VideoXum
+model_name: TAMS
+dataset: VideoXum
+graph_name: VideoXum_10_0
+videoxum_fea: vt_clipscore
+loss_name: bce_logit
+
+protocol_mode: strict_main
+score_level: frame
+monitor_metric: joint
+output_adapter: none
+
+task_mode: generic
+use_query: false
+modalities: [v, t]
+num_modality: 2
+use_text: true
+use_audio: false
+
+m2_visual_type: ca_gbt
+m2_text_type: sage
+
+use_matl: true
+use_ot_cma: true
+use_directional_gnn: true
+use_modality_gate: true
+
+matl_scales: [3, 10, 30]
+matl_temperature_init: 1.0
+matl_temperature_final: 0.1
+matl_temperature_epochs: 15
+matl_freeze_epochs: 2
+
+lambda_topo_sparse: 0.01
+lambda_topo_div: 0.005
+topo_rho_min: 0.3
+
+sinkhorn_reg: 0.1
+sinkhorn_iter: 8
+ot_cma_topo_weight: 0.1
+ot_cma_dropout: 0.1
+
+interleaved_layers: 3
+multi_scale_taus: [3, 10, 30]
+
+use_rank_loss: true
+rank_supervision: gtscore
+lambda_rank: 0.08
+
+channel1: 256
+channel2: 128
+final_dim: 1
+num_att_heads: 0
+dropout: 0.15
+
+lr: 0.0005
+wd: 0.0008
+batch_size: 1
+sch_param: 50
+num_epoch: 25
+k: 5
+eps: 0.5
+max_grad_norm: 0.5
+
+monitor_joint_w_f1: 1.5
+monitor_joint_w_tau: 0.2
+monitor_joint_w_rho: 0.2
+joint_val_budget: 0.15
+
+videoxum_modality_dropout_p: 0.15
+videoxum_modality_dropout_which: aux
+
+use_mean_sum: true
+norm: true
+t_emb: true
+seed: 42
+device: cuda:0
+eval_type: VS_avg
+use_amp: true
