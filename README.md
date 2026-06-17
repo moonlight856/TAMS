@@ -191,7 +191,7 @@ python tools/eval_mrhisum.py --exp_name TAMS_MrHiSum
 | -------- | ----- | ----------- | ------------ |
 | SumMe    | 55.13 | 0.170       | 0.230        |
 | TVSum    | 59.36 | 0.342       | 0.483        |
-| VideoXum | 32.47 | 0.232       | 0.305        |
+| VideoXum | 32.10 | 0.232       | 0.305        |
 
 | Dataset | Avg F1 (Sharghi) |
 |---------|------------------|
