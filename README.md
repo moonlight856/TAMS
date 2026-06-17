@@ -2,6 +2,13 @@
 
 <div align="center">
 
+**Chaoqun Hu**,
+**Ruyi Zhang**,
+**Haocheng Tang**,
+[**Wenrui Li**]([https://scholar.google.com/citations?user=rUOpCEYAAAAJ](https://liwrui.github.io/),
+**Hengyu Man**,
+[**Xiaopeng Fan**](https://scholar.google.cz/citations?hl=zh-CN&user=4LsZhDgAAAAJ&view_op=list_works&sortby=pubdate)
+
 **Topology-Adaptive Multi-Scale Network for Unified Video Summarization**
 
 </div>
