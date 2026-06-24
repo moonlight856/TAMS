@@ -3,9 +3,9 @@
 <div align="center">
 
 **Chaoqun Hu**,
-**Dongjie Zhou**,
-**Ruyi Zhang**,
+**Yuejia Li**,
 **Haocheng Tang**,
+**Bobo Xi**,
 **Hengyu Man**,
 **Xingtao Wang**,
 [**Wenrui Li**](https://liwrui.github.io/)
